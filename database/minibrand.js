@@ -1,5 +1,4 @@
-const miniBrandsSeries3 = 
-[ 
+const minibrand = [ 
 {
   "itemNo": 1,
   "itemName": "Chocolate Syrup",
@@ -983,4 +982,4 @@ const miniBrandsSeries3 =
  }
 ]
 
-module.exports = miniBrandsSeries3
+module.exports = minibrand
