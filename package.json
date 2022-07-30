@@ -1,0 +1,25 @@
+{
+  "name": "surprise-5-api",
+  "version": "1.0.0",
+  "description": "mini brands api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "Jared Gutkin",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase": "^9.9.1",
+    "helmet": "^5.1.1",
+    "lodash": "^4.17.21",
+    "vuefire": "^2.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
