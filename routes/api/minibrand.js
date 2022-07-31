@@ -9,17 +9,33 @@ const minibrandTotal = minibrand.length
 router.get('/', (req, res) => {
     res.json(minibrand)})
 
-//Get mini brands by item no
-router.get('/rarity/:rarity', (req, res) => {
-    const minibrand_rarity = req.params.rarity;
-    const found = minibrand.some(minibrand => minibrand.name.toLowerCase() === minibrand_rarity.toLowerCase());
+//Get mini brands by item number
+router.get('/itemno/:itemNo', (req, res) => {
+    const minibrandItemNo = req.params.itemNo;
+    const found = minibrand.some(minibrand => minibrand.itemNo.toString().toLowerCase().replace(/\s/g, '') === minibrandItemNo.toString().toLowerCase().replace(/\s/g, ''));
     
     if(found) {
-        res.json(minibrand.filter(minibrand => minibrand.name.toLowerCase() === minibrand_rarity.toLowerCase()));
+        res.json(minibrand.filter(minibrand => minibrand.itemNo.toString().toLowerCase().replace(/\s/g, '') === minibrandItemNo.toString().toLowerCase().replace(/\s/g, '')));
     } else {
         res.status(400).json(
             {
-                ErrorMsg: `${_.startCase(_.toLower(minibrand_rarity))} is not a minibrand in our database.` 
+                ErrorMsg: `${_.startCase(_.toLower(minibrandItemNo))} is not a itemNo in our database.` 
+            }
+        );
+    }
+});
+
+//find mini brands by rarity
+router.get('/rarity/:rarity', (req, res) => {
+    const minibrandRarity = req.params.rarity;
+    const found = minibrand.some(minibrand => minibrand.rarity.toString().toLowerCase().replace(/\s/g, '') === minibrandRarity.toString().toLowerCase().replace(/\s/g, ''));
+    
+    if(found) {
+        res.json(minibrand.filter(minibrand => minibrand.rarity.toString().toLowerCase().replace(/\s/g, '') === minibrandRarity.toString().toLowerCase().replace(/\s/g, '')));
+    } else {
+        res.status(400).json(
+            {
+                ErrorMsg: `${_.startCase(_.toLower(minibrandRarity))} is not a rarity in our database.` 
             }
         );
     }
