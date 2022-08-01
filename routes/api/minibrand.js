@@ -11,6 +11,22 @@ router.get('/', (req, res) => {
     res.json(minibrand)
 })
 
+//Get mini brand by item Number
+router.get('/itemno/:itemNo', (req, res) => {
+    const minibrandItemNo = req.params.itemNo;
+    const found = minibrand.some(minibrand => minibrand.itemNo.toString().toLowerCase().replace(/\s/g, '') === minibrandItemNo.toString().toLowerCase().replace(/\s/g, ''));
+    
+    if(found) {
+        res.json(minibrand.filter(minibrand => minibrand.itemNo.toString().toLowerCase().replace(/\s/g, '') === minibrandItemNo.toString().toLowerCase().replace(/\s/g, '')));
+    } else {
+        res.status(400).json(
+            {
+                ErrorMsg: `${_.startCase(_.toLower(minibrandItemNo))} is not a ItemNo in our database.` 
+            }
+        );
+    }
+})
+
 //Get mini brand by series number
 router.get('/seriesno/:seriesNo', (req, res) => {
     const minibrandSeriesNo = req.params.seriesNo;
@@ -27,42 +43,37 @@ router.get('/seriesno/:seriesNo', (req, res) => {
     }
 })
 
-// // //Get mini brands by item number
-// // router.get('/:seriesNo/itemno/:itemNo', (req, res) => {
-// //     const minibrandItemNo = req.params.itemNo;
-// //     const minibrandSeriesNo = req.params.seriesNo;
-
-// //     const found = minibrand.some(minibrand => (minibrand.itemNo.toString().toLowerCase().replace(/\s/g, '') && minibrand.seriesNo.toString().toLowerCase().replace(/\s/g, ''))
-// //       === 
-// //       (minibrandItemNo.toString().toLowerCase().replace(/\s/g, '') && minibrandSeriesNo.toString().toLowerCase().replace(/\s/g, ''))
-// //       );
+//Get mini brand by rarity
+router.get('/rarity/:rarity', (req, res) => {
+    const minibrandRarity = req.params.rarity;
+    const found = minibrand.some(minibrand => minibrand.rarity.toString().toLowerCase().replace(/\s/g, '') === minibrandRarity.toString().toLowerCase().replace(/\s/g, ''));
     
-// //     if(found) {
-// //         res.json(minibrand.filter(minibrand => minibrand.itemNo.toString().toLowerCase().replace(/\s/g, '') === minibrandItemNo.toString().toLowerCase().replace(/\s/g, '')));
-// //     } else {
-// //         res.status(400).json(
-// //             {
-// //                 ErrorMsg: `${_.startCase(_.toLower(minibrandItemNo))} is not a itemNo in our database.` 
-// //             }
-// //         );
-// //     }
-// // });
+    if(found) {
+        res.json(minibrand.filter(minibrand => minibrand.rarity.toString().toLowerCase().replace(/\s/g, '') === minibrandRarity.toString().toLowerCase().replace(/\s/g, '')));
+    } else {
+        res.status(400).json(
+            {
+                ErrorMsg: `${_.startCase(_.toLower(minibrandRarity))} is not a rarity in our database.` 
+            }
+        );
+    }
+})
 
-// //find mini brands by rarity
-// router.get('/rarity/:rarity', (req, res) => {
-//     const minibrandRarity = req.params.rarity;
-//     const found = minibrand.some(minibrand => minibrand.rarity.toString().toLowerCase().replace(/\s/g, '') === minibrandRarity.toString().toLowerCase().replace(/\s/g, ''));
+////find mini brands by brand Name
+router.get('/brandname/:brandName', (req, res) => {
+    const minibrandBrandName = req.params.brandName;
+    const found = minibrand.some(minibrand => minibrand.brandName.toString().toLowerCase().replace(/\s/g, '') === minibrandBrandName.toString().toLowerCase().replace(/\s/g, ''));
     
-//     if(found) {
-//         res.json(minibrand.filter(minibrand => minibrand.rarity.toString().toLowerCase().replace(/\s/g, '') === minibrandRarity.toString().toLowerCase().replace(/\s/g, '')));
-//     } else {
-//         res.status(400).json(
-//             {
-//                 ErrorMsg: `${_.startCase(_.toLower(minibrandRarity))} is not a rarity in our database.` 
-//             }
-//         );
-//     }
-// });
+    if(found) {
+        res.json(minibrand.filter(minibrand => minibrand.brandName.toString().toLowerCase().replace(/\s/g, '') === minibrandBrandName.toString().toLowerCase().replace(/\s/g, '')));
+    } else {
+        res.status(400).json(
+            {
+                ErrorMsg: `${_.startCase(_.toLower(minibrandBrandName))} is not a brand in our database.` 
+            }
+        );
+    }
+})
 
 
 
