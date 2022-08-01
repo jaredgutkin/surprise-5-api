@@ -15,6 +15,11 @@ app.use(express.static(path.join(__dirname, 'public')))
 //routes
 app.use('/api/minibrand', require('./routes/api/minibrand'))
 
+app.use('/api/minibrand/1', require('./routes/api/minibrand1'))
+app.use('/api/minibrand/2', require('./routes/api/minibrand2'))
+app.use('/api/minibrand/3', require('./routes/api/minibrand3'))
+app.use('/api/minibrand/4', require('./routes/api/minibrand4'))
+
 app.listen(PORT, () => console.log(`running on port ${PORT}`))
 
 module.exports = app

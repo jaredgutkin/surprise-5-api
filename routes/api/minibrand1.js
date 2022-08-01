@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const minibrand = require('../../database/minibrand')
+const minibrand1 = require('../../database/minibrand')
+const minibrandSeriesNo = 1
+
+const minibrand = minibrand1.filter(minibrand1 => minibrand1.seriesNo.toString().toLowerCase().replace(/\s/g, '') === minibrandSeriesNo.toString().toLowerCase().replace(/\s/g, ''))
 
 const minibrandTotal = minibrand.length
 
@@ -25,21 +28,6 @@ router.get('/itemno/:itemNo', (req, res) => {
     }
 })
 
-//Get mini brand by series number
-router.get('/seriesno/:seriesNo', (req, res) => {
-    const minibrandSeriesNo = req.params.seriesNo;
-    const found = minibrand.some(minibrand => minibrand.seriesNo.toString().toLowerCase().replace(/\s/g, '') === minibrandSeriesNo.toString().toLowerCase().replace(/\s/g, ''));
-    
-    if(found) {
-        res.json(minibrand.filter(minibrand => minibrand.seriesNo.toString().toLowerCase().replace(/\s/g, '') === minibrandSeriesNo.toString().toLowerCase().replace(/\s/g, '')));
-    } else {
-        res.status(400).json(
-            {
-                ErrorMsg: `${_.startCase(_.toLower(minibrandSeriesNo))} is not a seriesNo in our database.` 
-            }
-        );
-    }
-})
 
 //Get mini brand by rarity
 router.get('/rarity/:rarity', (req, res) => {
