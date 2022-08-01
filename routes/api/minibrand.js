@@ -75,6 +75,22 @@ router.get('/brandname/:brandName', (req, res) => {
     }
 })
 
+//Get mini brand by specialFeature
+router.get('/sf/:specialFeature', (req, res) => {
+    const minibrandSpecialFeature = req.params.specialFeature;
+    const found = minibrand.some(minibrand => minibrand.specialFeature.toString().toLowerCase().replace(/\s/g, '') === minibrandSpecialFeature.toString().toLowerCase().replace(/\s/g, ''));
+    
+    if(found) {
+        res.json(minibrand.filter(minibrand => minibrand.specialFeature.toString().toLowerCase().replace(/\s/g, '') === minibrandSpecialFeature.toString().toLowerCase().replace(/\s/g, '')));
+    } else {
+        res.status(400).json(
+            {
+                ErrorMsg: `${_.startCase(_.toLower(minibrandSpecialFeature))} is not a SpecialFeature in our database.` 
+            }
+        );
+    }
+})
+
 
 
 
