@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>Zuru's Surprise 5 API Playground</title>
     <link rel="shortcut icon" href="Favicon.x-ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
@@ -29,11 +30,11 @@
                                     <div class="field has-addons">
                                         <p class="control">
                                             <a class="button is-static">
-                                                https://localhost:5000/api/minibrand/brandname/
+                                                http://localhost:5000/api/minibrand/brandname/
                                             </a>
                                         </p>
                                         <p class="control">
-                                            <input class="input" type="text" placeholder="name" v-model="name">
+                                            <input class="input" type="text" placeholder="brandName" v-model="brandName">
                                         </p>
                                         <p class="control">
                                             <button class="button is-link">Search</button>
@@ -45,11 +46,11 @@
                         <div class="field">
                             <label class="label">Search by MiniBrand itemNo</label>
                             <div class="control">
-                                <form @submit.prevent="searchitemNo">
+                                <form @submit.prevent="searchItemNo">
                                     <div class="field has-addons">
                                         <p class="control">
                                             <a class="button is-static">
-                                                https://localhost:5000/api/minibrand/itemNo/
+                                                http://localhost:5000/api/minibrand/itemNo/
                                             </a>
                                         </p>
                                         <p class="control">
@@ -64,15 +65,15 @@
                         </div>
                         <hr>
                         <article class="media" v-for="(minibrand, index) in response">
-                            <figure class="media-left">
+                            <!-- <figure class="media-left">
                                 <p class="image is-128x128">
                                     <img :src="digimon.img">
                                 </p>
-                            </figure>
+                            </figure> -->
                             <div class="media-content">
                                 <div class="content">
                                     <p>
-                                        <strong>{{ minibrand.brandName }}</strong> <br><small>{{ minibrand.itemName }}</small>
+                                        <strong>{{ minibrand.itemName }}</strong> <br><small>{{ minibrand.itemName }}</small>
                                     </p>
                                 </div>
                             </div>

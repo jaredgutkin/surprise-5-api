@@ -1,12 +1,15 @@
 let vm = new Vue({
     el: "#app",
     data: {
-        id: "",
-        brandName: "",
         itemNo: "",
-        url: "",
+        itemName: "",
+        brandName: "",
+        rarity: "",
+        specialFeature: "",
+        exclusive: "",
+        seriesNo: "",
         response: "",
-        endpoint: "https://localhost:5000/api/minibrand/",
+        endpoint: "http://localhost:5000/api/minibrand/",
         error: {
             isVisible: false,
             message: "Nothing matches your input in our database."
@@ -29,14 +32,14 @@ let vm = new Vue({
             this.itemNo = "";
             this.error.isVisible = false;
         },
-        searchId: function() {
-            let path = "id/";
-            let id = this.id;
-            this.getMiniBrand(path, id);
+        // searchRarity: function() {
+        //     let path = "rarity/";
+        //     let rarity = this.rarity;
+        //     this.getMiniBrand(path, rarity);
             
-            this.id = "";
-            this.error.isVisible = false;
-        },
+        //     this.rarity = "";
+        //     this.error.isVisible = false;
+        // },
         getMiniBrand: function(path, parameter) {
             axios({
                 method: "GET",
