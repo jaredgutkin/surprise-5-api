@@ -24,13 +24,12 @@
                     <div class="notification is-warning">
                         <p>The Digimon API was originally created and deployed to Heroku for free, but due to <a href="https://devcenter.heroku.com/articles/free-dyno-hours" target="_blank">Heroku's limited free tier</a>, this is causing performance issues and potential drop outs. Because of this, I have chosen to dual deploy the Digimon API to Vercel while deprecating the Heroku version. This will result in superior speed and reliability.</p>
                     </div> -->
-                    <p>The <span class="has-text-success">supported</span> API endpoint: <code><a href="https://digimon-api.vercel.app/api/digimon">https://digimon-api.vercel.app/api/digimon</a></code>.</p>
-                    <p>The <span class="has-text-danger">deprecated</span> API endpoint: <code><a href="https://digimon-api.herokuapp.com/api/digimon">https://digimon-api.herokuapp.com/api/digimon</a></code>.</p>
+                    <p>The <span class="has-text-success">supported</span> API endpoint: <code><a href="http://localhost:5000/api/minibrand">http://localhost:5000/api/minibrand</a></code>.</p>
                     <div class="content">
                         <ul>
-                            <li>Get the full list of Mini Brands: <code><a href="/api/digimon">/api/digimon</a></code></li>
-                            <li>Query the API for a specific Digimon by name by passing the name in the URL: <br><b>Example:</b> <code><a href="/api/digimon/name/agumon">/api/digimon/name/agumon</a></code></li>
-                            <li>Query the API for a list of Digimon by level by passing the level in the URL: <br><b>Example:</b> <code><a href="/api/digimon/level/rookie">/api/digimon/level/rookie</a></code></li>
+                            <li>Get the full list of Mini Brands: <code><a href="/api/minibrand">/api/minibrand</a></code></li>
+                            <li>Query the API for a specific Mini Brands by series by passing the series number in the URL: <br><b>Example:</b> <code><a href="/api/minibrand/seriesno/4">/api/minibrand/seriesno/4</a></code></li>
+                            <!-- <li>Query the API for a list of Digimon by level by passing the level in the URL: <br><b>Example:</b> <code><a href="/api/digimon/level/rookie">/api/digimon/level/rookie</a></code></li> -->
                         </ul>
                     </div>
                     <h2 class="title is-5">API Calls & Endpoints</h2>
@@ -45,13 +44,13 @@
                         <tbody>
                             <tr>
                                 <td><code class="has-text-dark">GET</code></td>
-                                <td><code class="has-text-dark">/api/digimon</code></td>
-                                <td>Returns an array of all Digimon in our database.</td>
+                                <td><code class="has-text-dark">/api/minibrand</code></td>
+                                <td>Returns an array of all Minibrands in our database.</td>
                             </tr>
                             <tr>
                                 <td><code class="has-text-dark">GET</code></td>
-                                <td><code class="has-text-dark">/api/digimon/name/:name</code></td>
-                                <td>Returns an array of Digimon based on their name. <br>The array will contain one Digimon.</td>
+                                <td><code class="has-text-dark">/api/digimon/seriesno/:seriesNo</code></td>
+                                <td>Returns an array of minibrands based on their series. <br>The array will contain all the minibrands in the selected series.</td>
                             </tr>
                             <tr>
                                 <td><code class="has-text-dark">GET</code></td>
