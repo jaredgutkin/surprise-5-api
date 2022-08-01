@@ -9,7 +9,7 @@ let vm = new Vue({
         exclusive: "",
         seriesNo: "",
         response: "",
-        endpoint: "http://localhost:5000/api/minibrand/",
+        endpoint: "https://surprise-5-api.vercel.app/api/minibrand/",
         error: {
             isVisible: false,
             message: "Nothing matches your input in our database."
