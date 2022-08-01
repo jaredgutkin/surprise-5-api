@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Digimon API</title>
+    <title>Zuru Surprise 5 API</title>
     <link rel="shortcut icon" href="Favicon.x-ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <style>
@@ -49,13 +49,23 @@
                             </tr>
                             <tr>
                                 <td><code class="has-text-dark">GET</code></td>
-                                <td><code class="has-text-dark">/api/digimon/seriesno/:seriesNo</code></td>
+                                <td><code class="has-text-dark">/api/minibrand/seriesno/:seriesNo</code></td>
                                 <td>Returns an array of minibrands based on their series. <br>The array will contain all the minibrands in the selected series.</td>
                             </tr>
                             <tr>
                                 <td><code class="has-text-dark">GET</code></td>
-                                <td><code class="has-text-dark">/api/digimon/level/:level</code></td>
-                                <td>Returns an array of Digimon based on their level.</td>
+                                <td><code class="has-text-dark">/api/minibrand/itemno/:itemNo</code></td>
+                                <td>Returns an array of minibrands based on their item Number. <br>The array will contain all the minibrands of the selected Item Number.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="has-text-dark">GET</code></td>
+                                <td><code class="has-text-dark">/api/minibrand/brandname/:brandName</code></td>
+                                <td>Returns an array of mini brands based on their brand.</td>
+                            </tr>
+                            <tr>
+                                <td><code class="has-text-dark">GET</code></td>
+                                <td><code class="has-text-dark">/api/minibrand/rarity/:rarity</code></td>
+                                <td>Returns an array of mini brands based on their rarity. (Common, rare, super rare, ultra rare)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -71,18 +81,23 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><code class="has-text-dark">name</code></td>
-                                <td>Digimon's name</td>
+                                <td><code class="has-text-dark">seriesNo</code></td>
+                                <td>Series Number</td>
+                                <td>Number (but GR is String)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="has-text-dark">itemNo</code></td>
+                                <td>Number of Item in series</td>
+                                <td>Number</td>
+                            </tr>
+                            <tr>
+                                <td><code class="has-text-dark">brandName</code></td>
+                                <td>Brand Name of Mini Brand</td>
                                 <td>String</td>
                             </tr>
                             <tr>
-                                <td><code class="has-text-dark">img</code></td>
-                                <td>Picture of the Digimon</td>
-                                <td>String</td>
-                            </tr>
-                            <tr>
-                                <td><code class="has-text-dark">level</code></td>
-                                <td>Digimon's level</td>
+                                <td><code class="has-text-dark">rarity</code></td>
+                                <td>Rarity of Mini Brand</td>
                                 <td>String</td>
                             </tr>
                         </tbody>
